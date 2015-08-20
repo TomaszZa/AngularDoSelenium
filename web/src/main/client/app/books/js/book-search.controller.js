@@ -13,6 +13,11 @@ angular.module('app.books').controller('BookSearchController', function ($scope,
             }
         }
     };
+    
+    var addBook = function (book) {
+                $scope.books.splice($scope.books.length, 0, book);
+                break;
+    };
 
     $scope.search = function () {
         bookService.search($scope.prefix).then(function (response) {
@@ -30,6 +35,11 @@ angular.module('app.books').controller('BookSearchController', function ($scope,
     };
 
     $scope.addBook = function () {
+        bookService.saveBook(book).then(function (){
+        addBook(book);
+        Flash.create('success', 'Książka została dodana.', 'custom-class');
+        });
+    
         $location.url('/books/add-book');
     };
 
