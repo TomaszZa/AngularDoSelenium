@@ -53,4 +53,12 @@ public class AuthorEntity {
 		this.lastName = lastName;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void putId(Long id) {
+		this.id = id;
+	}
+
 }

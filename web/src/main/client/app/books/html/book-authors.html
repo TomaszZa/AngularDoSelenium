@@ -1,0 +1,24 @@
+<div>
+    <form novalidate>
+        <div class="modal-header">
+            <h3 class="modal-title">Dodawanie autorow:</h3>
+        </div>
+        <div class="modal-body">
+                <div flash-message="5000" ></div>
+                <p>
+                FirstName:
+                <input type="text" ng-model="firstName">
+                </p>
+                <p>
+                LastName:
+                <input type="text" ng-model="lastName">
+                </p>
+                <p>
+                <button ng-click="makeAuthor()">Dodaj Autora</button>
+                </p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" ng-click="$dismiss()">Close</button>
+        </div>
+    </form>
+</div>

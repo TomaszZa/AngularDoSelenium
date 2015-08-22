@@ -11,15 +11,16 @@ public class BookMapper {
 	public static BookTo map(BookEntity bookEntity) {
 		if (bookEntity != null) {
 
-			return new BookTo(bookEntity.getId(), bookEntity.getTitle(), changeListOfAuthorsToString(bookEntity));
+			return new BookTo(bookEntity.getId(), bookEntity.getTitle(),
+					AuthorMapper.listEntitymap(bookEntity.getAuthors()));
 		}
 		return null;
 	}
 
 	public static BookEntity map(BookTo bookTo) {
 		if (bookTo != null) {
-			return new BookEntity(bookTo.getId(), bookTo.getTitle()); // brakuje
-																		// authora
+			return new BookEntity(bookTo.getId(), bookTo.getTitle(), AuthorMapper.listTomap(bookTo.getAuthors())); // brakuje
+			// authora
 		}
 		return null;
 	}
@@ -32,7 +33,4 @@ public class BookMapper {
 		return bookEntities.stream().map(BookMapper::map).collect(Collectors.toList());
 	}
 
-	private static String changeListOfAuthorsToString(BookEntity bookEntity) {
-		return bookEntity.getAuthors().get(0).getFirstName() + " " + bookEntity.getAuthors().get(0).getLastName();
-	}
 }

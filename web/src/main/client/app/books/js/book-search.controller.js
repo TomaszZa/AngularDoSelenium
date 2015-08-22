@@ -1,4 +1,4 @@
-angular.module('app.books').controller('BookSearchController', function ($scope, $window, $location, bookService, Flash, $modal) {
+angular.module('app.books').controller('BookSearchController', function ($scope, $window, $location, bookService, Flash) {
     'use strict';
 
     $scope.books = [];
@@ -12,11 +12,6 @@ angular.module('app.books').controller('BookSearchController', function ($scope,
                 break;
             }
         }
-    };
-    
-    var addBook = function (book) {
-                $scope.books.splice($scope.books.length, 0, book);
-                break;
     };
 
     $scope.search = function () {
@@ -35,16 +30,7 @@ angular.module('app.books').controller('BookSearchController', function ($scope,
     };
 
     $scope.addBook = function () {
-            bookService.saveBook(book).then(function (){
-        addBook(book);
-        Flash.create('success', 'Książka została dodana.', 'custom-class');
-        });
-   
-        $modal.open({
-            templateUrl: 'books/html/book-modal.html',
-            controller: 'BookModalController',
-            size: 'lg'
-        });
+        $location.url('/books/add-book');
     };
 
 });
