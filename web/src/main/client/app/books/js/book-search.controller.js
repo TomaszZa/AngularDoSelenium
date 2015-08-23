@@ -4,6 +4,7 @@ angular.module('app.books').controller('BookSearchController', function ($scope,
     $scope.books = [];
     $scope.gridOptions = { data: 'books' };
     $scope.prefix = '';
+    
 
     var removeBookById = function (bookId) {
         for (var i = 0; i < $scope.books.length; i = i + 1) {
@@ -31,6 +32,20 @@ angular.module('app.books').controller('BookSearchController', function ($scope,
 
     $scope.addBook = function () {
         $location.url('/books/add-book');
+    };
+    
+    $scope.changeBookTitle = function () { //
+        
+    $modal.open({
+         templateUrl: 'books/html/book-changeTitle.html',
+         controller: 'BookChangeTitleController',
+         size: 'lg'
+    }).result.then(function (response){
+
+    $scope.authors.push(response);
+        
+    });
+        
     };
 
 });
