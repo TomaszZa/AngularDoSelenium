@@ -37,4 +37,23 @@ describe('book controller', function () {
         expect(Flash.create).toHaveBeenCalledWith('success', 'Książka została usunięta.', 'custom-class');
         expect($scope.books.length).toBe(0);
     }));
+    
+        it('search book should found books with such prefix', inject(function ($controller, $q, bookService) {
+        // given
+        $controller('BookSearchController', {$scope: $scope});
+
+        $scope.prefix = 't';
+
+        var Deferred = $q.defer(); //tworzenie instancji saymulacji ukonczenia
+        spyOn(bookService, 'search').and.returnValue(Deferred.promise);  //zwraca promisa w momencie wywolania tablicy
+        // when
+        $scope.search();
+        Deferred.resolve({data: [{id: 1, title:'test'}]});  //zwraca wartosc za promisa
+        $scope.$digest(); //odpala $watch() aby zarejestrowac zmiany ng-click itd robia to automatycznie
+        // then
+        expect(bookService.search).toHaveBeenCalledWith($scope.prefix);
+        expect($scope.books.title).toBe('test');
+        expect($scope.books.length).toBe(1);
+    }));
+    
 });

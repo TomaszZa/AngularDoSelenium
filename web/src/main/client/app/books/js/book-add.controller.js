@@ -7,7 +7,7 @@
     $scope.firstName = '';
     $scope.lastName = '';
     $scope.authors = [];
-    $scope.AuthApperiance;
+    //$scope.AuthApperiance;
            
         var addingBook = function (book) {
                 $scope.books.push(book);       
@@ -31,7 +31,7 @@
            var book = {
              title : $scope.title,
              authors : $scope.authors
-           }
+           };
            bookAddService.addBook(book).then(function (){ 
              addingBook(book);
              $scope.authors = [];

@@ -1,7 +1,7 @@
 angular.module('app.books').controller('BookModalController', function ($scope,Flash,$modalInstance) {
     'use strict';
 
-    $scope.authorTo;
+    $scope.authorTo = '';
     $scope.firstName = '';
     $scope.lastName = '';
    
@@ -9,7 +9,7 @@ angular.module('app.books').controller('BookModalController', function ($scope,F
            var AuthorTo = {
              firstName : $scope.firstName,
              lastName : $scope.lastName
-           }  
+           };  
             $scope.authorTo = AuthorTo;            
         };
         
