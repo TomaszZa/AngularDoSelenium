@@ -7,27 +7,8 @@
     $scope.firstName = '';
     $scope.lastName = '';
     $scope.authors = [];
-    
-    setInterval(function (){
-    if($scope.authors.length == 0){
-                 document.getElementById("Dod").disabled = true;
-     }
-      if($scope.authors.length != 0){
-                 document.getElementById("Dod").disabled = false;
-     }
-    }
-    ,1000); //wywoluje funckje co 1000 ms Czemu nie dziala ?
-    
-    
-    //$scope.validate = function (){
-    //if($scope.authors.length == 0){
-    //             document.getElementById("Mybutton").disabled = true;
-    // }
-    //  if($scope.authors.length != 0){
-    //             document.getElementById("Mybutton").disabled = false;
-    // }
-    //};
-       
+    $scope.AuthApperiance;
+           
         var addingBook = function (book) {
                 $scope.books.push(book);       
         };

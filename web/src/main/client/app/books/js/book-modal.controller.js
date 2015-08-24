@@ -5,16 +5,6 @@ angular.module('app.books').controller('BookModalController', function ($scope,F
     $scope.authorTo;
     $scope.firstName = '';
     $scope.lastName = '';
-    
-    setInterval(function (){
-       if($scope.firstName.length == 0 || $scope.lastName.length == 0){
-                 document.getElementById("DodAuth").disabled = true;
-       }
-       else{
-                 document.getElementById("DodAuth").disabled = false;
-       }
-    }
-    ,1000); //wywoluje funckje co 1000 ms Czemu nie dziala ?
    
         var createAuthors = function () {
            var AuthorTo = {
