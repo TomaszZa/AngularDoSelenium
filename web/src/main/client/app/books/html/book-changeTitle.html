@@ -1,20 +1,16 @@
 <div>
-    <form novalidate>
+    <form name ="MyForm" novalidate>
         <div class="modal-header">
-            <h3 class="modal-title">Dodawanie autorow:</h3>
+            <h3 class="modal-title">Zmiana tytulu:</h3>
         </div>
         <div class="modal-body">
                 <div flash-message="5000" ></div>
                 <p>
-                FirstName:
-                <input type="text" ng-model="firstName">
-                </p>
+                NewTitle:
+                <input type="text" ng-model="newTitle" required>
+                </p>             
                 <p>
-                LastName:
-                <input type="text" ng-model="lastName">
-                </p>
-                <p>
-                <button ng-click="makeAuthor()" id = "DodAuth"">Dodaj Autora</button>
+                <button ng-click="makeNewTitle()" ng-disabled = "MyForm.$invalid">Dodaj Autora</button>
                 </p>
         </div>
         <div class="modal-footer">

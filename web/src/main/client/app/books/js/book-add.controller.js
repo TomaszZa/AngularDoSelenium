@@ -21,7 +21,6 @@
             controller: 'BookModalController',
             size: 'lg'
         }).result.then(function (response){
-        //$scope.authors=response;
         $scope.authors.push(response);
         });
     

@@ -1,7 +1,6 @@
 angular.module('app.books').controller('BookModalController', function ($scope,Flash,$modalInstance) {
     'use strict';
 
-    //$scope.authors = [];
     $scope.authorTo;
     $scope.firstName = '';
     $scope.lastName = '';
@@ -10,8 +9,7 @@ angular.module('app.books').controller('BookModalController', function ($scope,F
            var AuthorTo = {
              firstName : $scope.firstName,
              lastName : $scope.lastName
-           }
-            //$scope.authors.push(AuthorTo);   
+           }  
             $scope.authorTo = AuthorTo;            
         };
         
@@ -20,7 +18,6 @@ angular.module('app.books').controller('BookModalController', function ($scope,F
     $scope.makeAuthor = function () {    
         createAuthors();
         Flash.create('success', 'Autor dodany.', 'custom-class');
-       // $modalInstance.close($scope.authors);
        $modalInstance.close($scope.authorTo);
         };     
 });
