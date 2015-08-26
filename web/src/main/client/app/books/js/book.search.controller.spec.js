@@ -9,7 +9,7 @@ describe('book controller', function () {
 
     var $scope;
     beforeEach(inject(function ($rootScope) {
-        $scope = $rootScope.$new();
+        $scope = $rootScope.$new(); //tworzenie nowego $scope
     }));
 
     it('search is defined', inject(function ($controller) {
@@ -52,8 +52,17 @@ describe('book controller', function () {
         $scope.$digest(); //odpala $watch() aby zarejestrowac zmiany ng-click itd robia to automatycznie
         // then
         expect(bookService.search).toHaveBeenCalledWith($scope.prefix);
-        expect($scope.books.title).toBe('test');
+        expect($scope.books[0].title).toBe('test');
         expect($scope.books.length).toBe(1);
     }));
+        
+        it('addBook should call /books/add-book URL', inject(function ($controller,$location) {
+            
+        	$controller('BookSearchController', {$scope: $scope});
+        	$location.url('/books/add-book');
+            $scope.$apply();
+            expect($location.url()).toBe('/books/add-book');
+ 
+        }));
     
 });

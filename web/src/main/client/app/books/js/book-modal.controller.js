@@ -5,12 +5,13 @@ angular.module('app.books').controller('BookModalController', function ($scope,F
     $scope.firstName = '';
     $scope.lastName = '';
    
-        var createAuthors = function () {
+        var createAuthors = function () { //wewnetrznych metod sie nie testuje
            var AuthorTo = {
              firstName : $scope.firstName,
              lastName : $scope.lastName
            };  
-            $scope.authorTo = AuthorTo;            
+            $scope.authorTo = AuthorTo;
+            
         };
         
          
