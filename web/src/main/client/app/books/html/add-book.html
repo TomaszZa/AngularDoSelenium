@@ -9,11 +9,11 @@
     <p>Dodaj Ksiazke:</p>
     <p>
     Title:
-    <input type="text" ng-model="title" required>
+    <input name = "titleText" type="text" ng-model="title" required>
     <button ng-click="addBooks()" id = "Dod" ng-disabled = "myApp.$invalid || authors.length == 0">Dodaj Ksiazke</button>
     </p>
     <p>
-    <button ng-click="addAuthor()">Dodaj Autora</button>
+    <button name = "dodawanieAut" ng-click="addAuthor()">Dodaj Autora</button>
     </p>
 
 </section>

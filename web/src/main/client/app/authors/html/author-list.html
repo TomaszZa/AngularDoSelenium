@@ -6,7 +6,7 @@
 
     <p>Dadaj filtr wyszukiwania autorow:</p>
     <input type="text" ng-model="prefix">
-    <button ng-click="searchAuthors()">Szukaj</button>
+    <button name="authorsButton" ng-click="searchAuthors()">Szukaj</button>
 
 
     <table>
@@ -15,7 +15,7 @@
             <th>Nazwisko</th>
         </tr>
         <tr ng-repeat="author in authors | filter:prefix">
-            <td>{{ author.firstName}}</td>
+            <td name="firstNames">{{ author.firstName}}</td>
             <td>{{ author.lastName }}</td>
         </tr>
     </table>
